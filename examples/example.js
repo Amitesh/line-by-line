@@ -1,5 +1,5 @@
 var LineByLineReader = require('../line-by-line.js'),
-	lr = new LineByLineReader('example.txt', {skipEmptyLines: true }),
+	lr = new LineByLineReader('example.txt', {skipEmptyLines: true, synchronous: false }),
 	row = 0;
 
 lr.on('error', function (err) {

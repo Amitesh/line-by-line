@@ -16,7 +16,7 @@ Installation:
 Synchronous processing of lines:
 
 	var LineByLineReader = require('line-by-line'),
-	    lr = new LineByLineReader('big_file.txt');
+	    lr = new LineByLineReader('big_file.txt', {synchronous: true});
 
 	lr.on('error', function (err) {
 		// 'err' contains error object
@@ -65,12 +65,14 @@ Asynchronous processing of lines:
 `options` is an object with the following defaults:
 ```
 { encoding: 'utf8',
-  skipEmptyLines: false }
+  skipEmptyLines: false,
+  synchronous: false}
 ```
 
 `encoding` can be `'utf8'`, `'ascii'`, or `'base64'`.
 
 If `skipEmptyLines` set to `true`, empty lines don't trigger a 'line' event.
+To make it `synchronous` set to `true`, else it will run on next `processTick`.
 
 
 **Event: 'line'**
